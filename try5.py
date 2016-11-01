@@ -37,134 +37,8 @@ print('Loading dataset {}...'.format(DATASET_PATH))
 with open(DATASET_PATH, 'rb') as f:
     train_dataset, train_labels = pickle.load(f)
 
-
 print('Training set', train_dataset.shape, train_labels.shape)
-print (train_labels[22])
-
-DATASET_PATH = os.environ.get('DATASET_PATH', 'c1.pkl')
-
-print('Loading dataset {}...'.format(DATASET_PATH))
-with open(DATASET_PATH, 'rb') as f:
-    dataset, labels = pickle.load(f)
-
  
-
-train_dataset = np.concatenate((train_dataset,dataset), axis=0)
-train_labels = np.concatenate((train_labels,labels), axis=0)
-
-print('Training set', train_dataset.shape, train_labels.shape)
-
-DATASET_PATH = os.environ.get('DATASET_PATH', 'c2.pkl')
-
-print('Loading dataset {}...'.format(DATASET_PATH))
-with open(DATASET_PATH, 'rb') as f:
-    dataset, labels = pickle.load(f)
-
- 
-
-train_dataset = np.concatenate((train_dataset,dataset), axis=0)
-train_labels = np.concatenate((train_labels,labels), axis=0)
-
-print('Training set', train_dataset.shape, train_labels.shape)
-
-
-DATASET_PATH = os.environ.get('DATASET_PATH', 'c3.pkl')
-
-print('Loading dataset {}...'.format(DATASET_PATH))
-with open(DATASET_PATH, 'rb') as f:
-    dataset, labels = pickle.load(f)
-
- 
-
-train_dataset = np.concatenate((train_dataset,dataset), axis=0)
-train_labels = np.concatenate((train_labels,labels), axis=0)
-
-print('Training set', train_dataset.shape, train_labels.shape)
-  
-
-DATASET_PATH = os.environ.get('DATASET_PATH', 'c4.pkl')
-
-print('Loading dataset {}...'.format(DATASET_PATH))
-with open(DATASET_PATH, 'rb') as f:
-    dataset, labels = pickle.load(f)
-
- 
-
-train_dataset = np.concatenate((train_dataset,dataset), axis=0)
-train_labels = np.concatenate((train_labels,labels), axis=0)
-
-print('Training set', train_dataset.shape, train_labels.shape)
-  
-
-DATASET_PATH = os.environ.get('DATASET_PATH', 'c5.pkl')
-
-print('Loading dataset {}...'.format(DATASET_PATH))
-with open(DATASET_PATH, 'rb') as f:
-    dataset, labels = pickle.load(f)
-
- 
-
-train_dataset = np.concatenate((train_dataset,dataset), axis=0)
-train_labels = np.concatenate((train_labels,labels), axis=0)
-
-DATASET_PATH = os.environ.get('DATASET_PATH', 'c6.pkl')
-
-print('Loading dataset {}...'.format(DATASET_PATH))
-with open(DATASET_PATH, 'rb') as f:
-    dataset, labels = pickle.load(f)
-
- 
-
-train_dataset = np.concatenate((train_dataset,dataset), axis=0)
-train_labels = np.concatenate((train_labels,labels), axis=0)
-
-print('Training set', train_dataset.shape, train_labels.shape)
-  
-
-DATASET_PATH = os.environ.get('DATASET_PATH', 'c7.pkl')
-
-print('Loading dataset {}...'.format(DATASET_PATH))
-with open(DATASET_PATH, 'rb') as f:
-    dataset, labels = pickle.load(f)
-
- 
-
-train_dataset = np.concatenate((train_dataset,dataset), axis=0)
-train_labels = np.concatenate((train_labels,labels), axis=0)
-
-print('Training set', train_dataset.shape, train_labels.shape)
-  
-
-DATASET_PATH = os.environ.get('DATASET_PATH', 'c8.pkl')
-
-print('Loading dataset {}...'.format(DATASET_PATH))
-with open(DATASET_PATH, 'rb') as f:
-    dataset, labels = pickle.load(f)
-
- 
-
-train_dataset = np.concatenate((train_dataset,dataset), axis=0)
-train_labels = np.concatenate((train_labels,labels), axis=0)
-
-print('Training set', train_dataset.shape, train_labels.shape)
-  
-
-DATASET_PATH = os.environ.get('DATASET_PATH', 'c9.pkl')
-
-print('Loading dataset {}...'.format(DATASET_PATH))
-with open(DATASET_PATH, 'rb') as f:
-    dataset, labels = pickle.load(f)
-
- 
-
-train_dataset = np.concatenate((train_dataset,dataset), axis=0)
-train_labels = np.concatenate((train_labels,labels), axis=0)
-
-print('Training set', train_dataset.shape, train_labels.shape)
-
-del dataset
-del labels
-  
 
 def randomize(dataset, labels):
 	permutation = np.random.permutation(labels.shape[0])
@@ -217,21 +91,13 @@ model.add(ZeroPadding2D((1,1)))
 model.add(Convolution2D(128, 3, 3, activation='relu'))
 model.add(MaxPooling2D((2,2), strides=(2,2)))
 
-# model.add(ZeroPadding2D((1,1)))
-# model.add(Convolution2D(256, 3, 3, activation='relu'))
-# model.add(ZeroPadding2D((1,1)))
-# model.add(Convolution2D(256, 3, 3, activation='relu'))
-# model.add(ZeroPadding2D((1,1)))
-# model.add(Convolution2D(256, 3, 3, activation='relu'))
-# model.add(MaxPooling2D((2,2), strides=(2,2)))
-
-# model.add(ZeroPadding2D((1,1)))
-# model.add(Convolution2D(512, 3, 3, activation='relu'))
-# model.add(ZeroPadding2D((1,1)))
-# model.add(Convolution2D(512, 3, 3, activation='relu'))
-# model.add(ZeroPadding2D((1,1)))
-# model.add(Convolution2D(512, 3, 3, activation='relu'))
-# model.add(MaxPooling2D((2,2), strides=(2,2)))
+model.add(ZeroPadding2D((1,1)))
+model.add(Convolution2D(256, 3, 3, activation='relu'))
+model.add(ZeroPadding2D((1,1)))
+model.add(Convolution2D(256, 3, 3, activation='relu'))
+model.add(ZeroPadding2D((1,1)))
+model.add(Convolution2D(256, 3, 3, activation='relu'))
+model.add(MaxPooling2D((2,2), strides=(2,2)))
 
 model.add(Flatten())
 model.add(Dense(512, activation='relu'))
