@@ -162,7 +162,7 @@ class EarlyStoppingByLossVal(Callback):
             self.model.stop_training = True
 
 
-def run_cross_validation_create_models():
+def create_model():
     batch_size = 32
     nb_epoch = 4
 
@@ -196,4 +196,4 @@ if __name__ == '__main__':
     if not os.path.isfile("weights/vgg16_weights.h5"):
         print('Please put VGG16 pretrained weights in weights/vgg16_weights.h5')
         exit()
-    run_cross_validation_create_models()
+    create_model()
